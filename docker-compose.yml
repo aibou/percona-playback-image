@@ -1,0 +1,17 @@
+services:
+  cmd:
+    build:
+      context: .
+      secrets:
+        - github-actor
+        - github-token
+    platform: linux/amd64
+    tty: true
+    volumes:
+      - ./logs:/data
+
+secrets:
+  github-actor:
+    environment: GITHUB_ACTOR
+  github-token:
+    environment: GITHUB_TOKEN
